@@ -67,8 +67,14 @@ class FallaController extends Controller
     public function update(falla $falla, saveFallaRequest $request)
         {
             $falla->update( $request->validated());
-            return redirect()->route('falla.show',$falla)->with('status','el proyecto fue actualizado con éxito');
+            return redirect()->route('falla.show',$falla)->with('status','La falla fue actualizado con éxito');
         }
+    public function destroy(falla $falla)
+        {
+            $falla->delete();
+
+            return redirect()->route('falla.index')->with('status','La falla fue eliminado con exito.');
+        }        
     public function __construct()
         {
         $this->middleware('auth')->except('index','show');
