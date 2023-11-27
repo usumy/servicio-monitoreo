@@ -1,4 +1,3 @@
-
 @extends('layout')
 @section('title', 'Fallas registradas')
 @section('content')
@@ -18,10 +17,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Descripción</th>
-                <th scope="col">Prioridad</th>
-                <th scope="col">Departamento</th>
-                <th scope="col">Nombre del Empleado</th>
-                <th scope="col">Resuelto</th>
+               
             </tr>
         </thead>
 		
@@ -36,10 +32,6 @@
 					href="{{route('falla.show',$falla)}}">
 						<span>{{$falla['descripcion']}}</span>
 					</a></td>
-				<td>{{$falla['prioridad']}}</td>
-				<td>{{$falla['departamento']}}</td>
-				<td>{{$falla['nombreemple']}}</td>
-				<td><input type='checkbox' class='check-box'></td>
 			</tr>
 			@empty
 			<td>no hay fallas para mostrar </td>

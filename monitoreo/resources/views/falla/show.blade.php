@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Tabla de fallas')
+@section('title', 'Visualización de la falla/'.$falla->id)
 @section('content')
 
 <div class="container">
@@ -7,14 +7,18 @@
 	<div class="bg-white p-5 shadow rounded">
 		<h1>{{$falla->id}}</h1>		
 		<p class="text-secondary">
-			{{$falla->description}}</p>
+			{{$falla['descripcion']}}</p>
         <p class="text-secondary">
-            {{$falla->prioridad}}</p>
+            {{$falla['prioridad']}}</p>
+		<p class="text-secondary">
+			{{$falla['departamento']}}</p>
+		<p class="text-secondary">
+			{{$falla['nombreemple']}}</p>
 		<p class="text-black-50">
 			{{$falla->created_at->diffForHumans()}}</p>
 		<div class="d-flex justify-content-between
 		alinf-items-center">
-			<a href="{{route('fallas.index')}}">Regresar</a>
+			<a href="{{route('falla.index')}}">Regresar</a>
 			
 @csrf
 </form>

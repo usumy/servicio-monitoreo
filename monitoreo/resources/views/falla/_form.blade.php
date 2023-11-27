@@ -15,8 +15,8 @@
             <label for="prioridad" class="form-label">¿Cual es el grado de prioridad?</label>
             <select
              class="form-select"
-             id="prioridad"
-             name="prioridad" required>
+             id="prioridad_id"
+             name="prioridad_id" required>
                 <option value="alta">Alta</option>
                 <option value="media">Media</option>
                 <option value="baja">Baja</option>
