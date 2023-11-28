@@ -34,6 +34,21 @@
 							href="{{ route('falla.index')}}">
 								registro de fallas    
 							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link"
+							href="{{ route('Depto.index')}}">
+							Registro de Departamentos
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link"
+							href="{{ route('Prioridad.index')}}">
+							Registro de grados de prioridad
+							</a>
+						</li>
 
 						<li class="nav-item" >
 							<a class="nav-link"

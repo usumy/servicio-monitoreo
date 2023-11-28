@@ -8,7 +8,13 @@ route::view('/','home')->name('home');
 Route::resource('falla','fallacontroller')
 ->names('falla')
 ->parameters(['falla'=>'falla']);
-route::view('/mostrar','mostrar')->name('mostrar');
+
+Route::resource('Depto','DeptoController')
+->names('Depto')
+->parameters(['Depto'=>'Depto']);
+Route::resource('Prioridad','PrioridadController')
+->names('Prioridad')
+->parameters(['Prioridad'=>'Prioridad']);
 
 Auth::routes([]);
 
