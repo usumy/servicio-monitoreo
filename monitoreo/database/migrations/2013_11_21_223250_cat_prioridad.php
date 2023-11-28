@@ -8,7 +8,7 @@ class CatPrioridad extends Migration
 {
     public function up()
     {
-        Schema::create('prioridades', function (Blueprint $table) {
+        Schema::create('prioridads', function (Blueprint $table) {
             $table->mediumIncrements('id')->unsigned();
             $table->text('descripcion');
             $table->timestamps();
@@ -18,6 +18,6 @@ class CatPrioridad extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('prioridades');
+        Schema::dropIfExists('prioridads');
     }
 }

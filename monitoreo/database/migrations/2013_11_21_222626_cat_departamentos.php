@@ -8,7 +8,7 @@ class CatDepartamentos extends Migration
 {
     public function up()
     {
-        Schema::create('departamentos', function (Blueprint $table) {
+        Schema::create('deptos', function (Blueprint $table) {
             $table->mediumIncrements('id')->unsigned();
             $table->text('descripcion');
             $table->timestamps();
@@ -18,6 +18,6 @@ class CatDepartamentos extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('departamentos');
+        Schema::dropIfExists('deptos');
     }
 }

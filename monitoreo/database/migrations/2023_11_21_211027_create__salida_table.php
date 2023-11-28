@@ -11,8 +11,8 @@ class CreateSalidaTable extends Migration
         Schema::create('salidas', function (Blueprint $table) {
             $table->mediumIncrements('id')->unsigned();
             $table->string('descripcion');
-            $table->unsignedMediumInteger('user_id');
-            $table->unsignedMediumInteger('falla_id');
+            $table->unsignedMediumInteger('user_id')->nullable();;
+            $table->unsignedMediumInteger('falla_id')->nullable();;
             $table->timestamps();
             $table->foreign('falla_id')->references('id')->on('fallas');
             $table->foreign('user_id')->references('id')->on('users');
