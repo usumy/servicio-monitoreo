@@ -12,7 +12,7 @@
             </textarea>
         </div>
         <div class="mb-3">
-            <label for="prioridad" class="form-label">¿Cual es el grado de prioridad?</label>
+            <label for="prioridad_id" class="form-label">¿Cual es el grado de prioridad?</label>
             <select
              class="form-select"
              id="prioridad_id"

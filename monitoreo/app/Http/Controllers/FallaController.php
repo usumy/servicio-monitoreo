@@ -19,10 +19,11 @@ class FallaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-        {
-            $falla = falla::latest()->paginate(10);
-            return view('falla.index', compact('falla'));
-        }
+    {
+        $falla = Falla::with('usuario')->paginate(10);
+
+        return view('falla.index', compact('falla'));
+    }
     public function show(falla $falla)
         {
             
@@ -32,8 +33,9 @@ class FallaController extends Controller
             ]);
             
             $falla = falla::find($falla);
+            $userName = $falla->user->name;
 
-        return view('falla.show', compact('falla'));
+        return view('falla.show', compact('falla','userName'));
         }
     public function view($id)
         {

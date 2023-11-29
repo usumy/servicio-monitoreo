@@ -38,7 +38,10 @@
 					</a></td>
 				<td>{{$falla['prioridad']}}</td>
 				<td>{{$falla['departamento']}}</td>
-				<td>{{$falla['nombreemple']}}</td>
+				<td> {{ $falla->user_id }}
+					@if($falla->usuario)
+						{{ $falla->usuario->nombre }}
+					@endif</td>
 				<td><input type='checkbox' class='check-box'></td>
 			</tr>
 			@empty

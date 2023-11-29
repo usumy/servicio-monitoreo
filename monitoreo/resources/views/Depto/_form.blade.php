@@ -8,7 +8,7 @@
              class="form-control" 
              id="descripcion"
              name="descripcion"
-             rows="3" required>
+             rows="1" required>
             </textarea>
         </div>
 

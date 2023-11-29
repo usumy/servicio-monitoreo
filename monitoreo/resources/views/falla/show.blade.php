@@ -13,7 +13,10 @@
 		<p class="text-secondary">
 			{{$falla['departamento']}}</p>
 		<p class="text-secondary">
-			{{$falla['nombreemple']}}</p>
+			{{ $falla->user_id }}
+					@if($falla->usuario)
+						{{ $falla->usuario->nombre }}
+					@endif</p>
 		<p class="text-black-50">
 			{{$falla->created_at->diffForHumans()}}</p>
 		<div class="d-flex justify-content-between

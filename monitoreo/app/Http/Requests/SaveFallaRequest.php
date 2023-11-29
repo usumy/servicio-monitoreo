@@ -26,15 +26,17 @@ class SaveFallaRequest extends FormRequest
         return [
             'descripcion' => 'required', 
             'prioridad' => 'required', 
-            'departamento' => 'required',
-            'nombreemple'=> 'required'
+          
             
         ];
+        return $this->belongsTo(User::class);
     }
+  
     public function messages()
     {
         return[
-            'description.required'=> 'Se necesita la descripción de la falla'
+            'description.required'=> 'Se necesita la descripción de la falla',
+            'prioridad.required'=> 'Se requiere una prioridad para la falla',
         ];
     }
     public function upload(Request $request)
