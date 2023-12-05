@@ -1,14 +1,14 @@
 @csrf
 <div class="container mt-5">
-    
+    @csrf 
     <form id="fallaForm" method="POST" action="procesar_formulario.php">
         <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción de la Falla</label>
             <textarea
-             class="form-control" 
-             id="descripcion"
+             class="form-control bg-light shadow-sm" 
              name="descripcion"
              rows="3" required>
+             {{old('description', $falla->description)}}
             </textarea>
         </div>
         <div class="mb-3">

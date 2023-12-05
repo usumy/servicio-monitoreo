@@ -20,7 +20,7 @@ class FallaController extends Controller
      */
     public function index()
     {
-        $falla = Falla::with('usuario')->paginate(10);
+        $falla = Falla::with('user')->paginate(10);
 
         return view('falla.index', compact('falla'));
     }
@@ -66,10 +66,11 @@ class FallaController extends Controller
                 'falla'=> $falla
             ]);
         }
-    public function update(falla $falla, saveFallaRequest $request)
+        public function update(falla $falla, saveFallaRequest $request)
         {
-            $falla->update( $request->validated());
-            return redirect()->route('falla.show',$falla)->with('status','La falla fue actualizado con éxito');
+            $falla->update($request->validated());
+        
+            return redirect()->route('falla.show', $falla)->with('status', 'La falla fue actualizada con éxito');
         }
     public function destroy(falla $falla)
         {

@@ -25,14 +25,20 @@
 					<li class="nav-item">
 						<a class="nav-link"
 						href="{{ route('register')}}">
-							registrar    
+							Registrar    
 						</a>
 					</li>
 					@else
 						<li class="nav-item">
 							<a class="nav-link"
+							href="{{ route('register')}}">
+								Registrar Usuario  
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link"
 							href="{{ route('falla.index')}}">
-								registro de fallas    
+								Registro de fallas    
 							</a>
 						</li>
 

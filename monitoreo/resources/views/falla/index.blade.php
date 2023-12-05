@@ -19,8 +19,8 @@
                 <th scope="col">ID</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Prioridad</th>
+				<th scope="col">ID y Nombre del Empleado</th>
                 <th scope="col">Departamento</th>
-                <th scope="col">Nombre del Empleado</th>
                 <th scope="col">Resuelto</th>
             </tr>
         </thead>
@@ -34,14 +34,24 @@
 				<td >
 					<a
 					href="{{route('falla.show',$falla)}}">
-						<span>{{$falla['descripcion']}}</span>
+						<span>{{ $falla->descripcion }}</span>
 					</a></td>
-				<td>{{$falla['prioridad']}}</td>
-				<td>{{$falla['departamento']}}</td>
-				<td> {{ $falla->user_id }}
-					@if($falla->usuario)
-						{{ $falla->usuario->nombre }}
-					@endif</td>
+				<td>
+					
+					{{$falla->prioridad_id}}
+					@if ($falla->prioridad)
+						{{ $falla->prioridad->descripcion }}
+					@else
+						<!-- Manejo cuando la relación prioridad no está definida -->
+						Prioridad sin registrar
+					@endif
+				</td>
+				<td>
+					{{ $falla->user_id }} <!-- Muestra el ID del usuario asociado a la falla -->  
+					{{ $falla->user->name }}
+				</td>
+				<td>{{ $falla->departamento }}</td>
+
 				<td><input type='checkbox' class='check-box'></td>
 			</tr>
 			@empty

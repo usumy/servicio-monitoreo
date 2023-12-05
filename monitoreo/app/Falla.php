@@ -12,8 +12,13 @@ class Falla extends Model
     {
         return 'id';
     }
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function prioridad()
+    {
+        return $this->belongsTo(prioridad::class, 'prioridad_id');
+    }
+  
 }
