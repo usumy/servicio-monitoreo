@@ -20,7 +20,7 @@ class FallaController extends Controller
      */
     public function index()
     {
-        $falla = Falla::with('user')->paginate(10);
+        $falla = Falla::with('user')->paginate(50);
 
         return view('falla.index', compact('falla'));
     }
