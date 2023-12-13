@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,6 +19,25 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="departamento_id" class="col-md-4 col-form-label text-md-right">¿De qué departamento es?</label>
+                        
+                            <div class="col-md-6">
+                                <select class="form-control @error('departamento_id') is-invalid @enderror" id="departamento_id" name="departamento_id" required>
+                                    <option value="1">Departamento de artes</option>
+                                    <option value="2">Departamento de informatica</option>
+                                    <option value="3">Departamento de contabilidad</option>
+                                    <option value="4">Departamento de finanzas</option>
+                                    <option value="5">Departamento de recursos humanos</option>
+                                </select>
+                        
+                                @error('departamento_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -1,5 +1,7 @@
 <nav class="navbar navbar-light navbar-expand-lg  bg-white shadow-sm">
 	<div class="container">
+		
+
 		<a class="navbar-brand" href="{{ route('home')}}}">
 			{{config('app.name')}}
 		</a>
@@ -21,13 +23,7 @@
 						href="{{ route('login')}}">
 							Iniciar sesión     <br>
 						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link"
-						href="{{ route('register')}}">
-							Registrar    
-						</a>
-					</li>
+					
 					@else
 						<li class="nav-item">
 							<a class="nav-link"
