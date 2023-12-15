@@ -2,26 +2,26 @@
 
 <?php $__env->startSection('title', 'Fallas registradas'); ?>
 <?php $__env->startSection('content'); ?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <div class="container">
 	<div class="d-flex justify-content-between aligm-items-center mb-3">
 		<h1 class="display-4 mb-0">Tabla De Fallas Registradas</h1>
 	</div>
-	<form method="POST" action="/falla/search">
+	
 	<?php echo csrf_field(); ?>
-	<?php if($falla instanceof LengthAwarePaginator): ?>
+	<?php if($falla instanceof \Illuminate\Pagination\LengthAwarePaginator): ?>
 	<?php echo e($falla->links()); ?>
 
 	
-	<?php endif; ?>
+	
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Prioridad</th>
+				<th scope="col">ID y Nombre del Empleado</th>
                 <th scope="col">Departamento</th>
-                <th scope="col">Nombre del Empleado</th>
                 <th scope="col">Resuelto</th>
             </tr>
         </thead>
@@ -32,19 +32,54 @@
 			<tr>
 				
 				<th scope='row'><?php echo e($falla->id); ?></th>
-				<td ><?php echo e($falla->description); ?></td>
-				<td><?php echo e($falla->prioridad); ?></td>
-				<td><?php echo e($falla->departamento); ?></td>
-				<td><?php echo e($falla->nombreemple); ?></td>
+				<td>
+					<a
+					href="<?php echo e(route('falla.show',$falla)); ?>">
+						<span><?php echo e($falla->descripcion); ?></span>
+					</a>
+				</td>
+				<td>
+					
+					<?php echo e($falla->prioridad_id); ?>
+
+					<?php if($falla->prioridad): ?>
+						<?php echo e($falla->prioridad->descripcion); ?>
+
+					<?php else: ?>
+						<!-- Manejo cuando la relación prioridad no está definida -->
+						Prioridad sin registrar
+					<?php endif; ?>
+				</td>
+				<td>
+					<?php echo e($falla->user_id); ?> <!-- Muestra el ID del usuario asociado a la falla -->  
+					<?php echo e($falla->user->name); ?>
+
+				</td>
+				<td>
+					<?php echo e($falla->user->departamento_id); ?>
+
+					<?php if($falla->Depto): ?>
+					<?php echo e($falla->Depto->descripcion); ?>
+
+					<?php else: ?> 
+						Sin descripción disponible
+					<?php endif; ?>
+				</td>
+				
+				
+
 				<td><input type='checkbox' class='check-box'></td>
+				
 			</tr>
+			
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 			<td>no hay fallas para mostrar </td>
 				
 		</tbody>
 		<?php endif; ?>
 	</table>
-
+	<?php endif; ?>
 </div>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\monitoreo\resources\views/falla/index.blade.php ENDPATH**/ ?>

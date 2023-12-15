@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+
 	<title><?php echo $__env->yieldContent('title'); ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-	<link rel="stylesheet" href="<?php echo e(mix('css/app.css')); ?>">
+	<link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 	<script type="<?php echo e(mix('js/app.js')); ?>" defer></script>
 	<style>
 

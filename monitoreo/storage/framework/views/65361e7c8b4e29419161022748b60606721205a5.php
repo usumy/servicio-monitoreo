@@ -1,5 +1,7 @@
 <nav class="navbar navbar-light navbar-expand-lg  bg-white shadow-sm">
 	<div class="container">
+		
+
 		<a class="navbar-brand" href="<?php echo e(route('home')); ?>}">
 			<?php echo e(config('app.name')); ?>
 
@@ -22,19 +24,34 @@
 						href="<?php echo e(route('login')); ?>">
 							Iniciar sesión     <br>
 						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link"
-						href="<?php echo e(route('register')); ?>">
-							registrar    
-						</a>
-					</li>
+					
 					<?php else: ?>
 						<li class="nav-item">
 							<a class="nav-link"
-							href="<?php echo e(route('falla.index')); ?>">
-								registro de fallas    
+							href="<?php echo e(route('register')); ?>">
+								Registrar Usuario  
 							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link"
+							href="<?php echo e(route('falla.index')); ?>">
+								Registro de fallas    
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link"
+							href="<?php echo e(route('Depto.index')); ?>">
+							Registro de Departamentos
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link"
+							href="<?php echo e(route('Prioridad.index')); ?>">
+							Registro de grados de prioridad
+							</a>
+						</li>
 
 						<li class="nav-item" >
 							<a class="nav-link"

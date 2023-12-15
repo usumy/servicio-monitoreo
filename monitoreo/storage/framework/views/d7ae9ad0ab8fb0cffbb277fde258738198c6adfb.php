@@ -1,49 +1,31 @@
-<?php echo csrf_field(); ?>
-<div class="container mt-5">
+
+    <?php echo csrf_field(); ?> 
     
-    <form id="fallaForm" method="POST" action="procesar_formulario.php">
-         <div class="mb-3">
-            <label for="nomb_trabajador" 
-            class="form-label">nombre de quien realizo el servicio</label>
+        <div class="form-group">
+            <label for="descripcion" class="form-label">Descripción de la Falla</label>
             <textarea
-             class="form-control" 
-             id="nomb_trabajador"
-              name="nomb_trabajador" 
-              rows="1" required>
+            class="form-control border-0 bg-light shadow-sm" 
+             name="descripcion"
+             >
+             <?php echo e(old('description', $falla->description)); ?>
+
             </textarea>
         </div>
-        <div class="mb-3">
-            <label for="departamento" class="form-label"> ¿De que departamento es?</label>
+        <div class="form-group">
+            <label for="prioridad_id" class="form-label">¿Cual es el grado de prioridad?</label>
             <select
              class="form-select"
-              id="departamento"
-               name="departamento" required>
-                <option value="departamento-sistemas">Departamento de sistemas</option>
-                <option value="departamento-programación">Departamento de programación</option>
-                <option value="departamento-mantenimiento">Departamento de mantenimiento</option>
+             id="prioridad_id"
+             name="prioridad_id" >
+                <option value="1">Alta</option>
+                <option value="2">Media</option>
+                <option value="3">Baja</option>
             </select>
         </div>
-        <div class="mb-3">
-            <label for="id_servicio" class="form-label">numero del servicio</label>
-            <textarea 
-            class="form-control" 
-            id="id_servicio" 
-            name="id_servicio" 
-            rows="1" required></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="Descripcion" class="form-label">Descripción de lo que se realizo </label>
-            <textarea
-             class="form-control" 
-             id="Descripcion"
-              name="Descripcion" 
-              rows="3" required></textarea>
-        </div>
+
         <button class="btn btn-primary btn-block"> <?php echo e($btnText); ?> </button>
         <a class="btn btn-link btn-block " 
         href="<?php echo e(route('falla.index')); ?>">
         Cancelar </a>
         
-    </form>
-</div>
-<?php /**PATH C:\laragon\www\monitoreo\resources\views/falla/_form.blade.php ENDPATH**/ ?>
+    <?php /**PATH C:\laragon\www\monitoreo\resources\views/falla/_form.blade.php ENDPATH**/ ?>

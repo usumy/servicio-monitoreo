@@ -16,6 +16,8 @@ Route::resource('Prioridad','PrioridadController')
 ->names('Prioridad')
 ->parameters(['Prioridad'=>'Prioridad']);
 
+
+
 Auth::routes([]);
 
 Auth::routes();
