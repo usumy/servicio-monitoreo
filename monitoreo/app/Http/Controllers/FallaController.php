@@ -20,7 +20,8 @@ class FallaController extends Controller
      */
     public function index()
     {
-        $falla = Falla::with('user')->paginate(50);
+        $falla = Falla::with('user', 'Depto')->paginate(10);
+      
 
         return view('falla.index', compact('falla'));
     }
@@ -34,8 +35,11 @@ class FallaController extends Controller
             
             $falla = falla::find($falla);
             $userName = $falla->user->name;
+            $registro = OtraTabla::find(1); // Obtén un registro de otra_tabla
+            $usuario = $registro->user->departamento_id->descripción; // Accede al usuario relacionado
 
-        return view('falla.show', compact('falla','userName'));
+
+        return view('falla.show', compact('falla','userName','usuario'));
         }
     public function view($id)
         {
@@ -70,7 +74,7 @@ class FallaController extends Controller
         {
             $falla->update($request->validated());
         
-            return redirect()->route('falla.show', $falla)->with('status', 'La falla fue actualizada con éxito');
+            return redirect()->route('falla.show',$falla)->with('status', 'La falla fue actualizada con éxito');
         }
     public function destroy(falla $falla)
         {

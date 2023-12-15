@@ -12,4 +12,8 @@ class Depto extends Model
     {
         return 'id';
     }
+    public function users()
+    {
+        return $this->hasMany(\App\User::class);
+    }
 }

@@ -20,5 +20,9 @@ class Falla extends Model
     {
         return $this->belongsTo(prioridad::class, 'prioridad_id');
     }
+    public function Depto()
+    {
+        return $this->belongsTo(Depto::class);
+    }
   
 }

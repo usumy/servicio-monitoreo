@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','departamento_id',
     ];
 
     /**
@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
     public function Depto()
     {
-        return $this->belongsTo(Depto::class, 'departamento_id');
+        return $this->belongsTo(Depto::class);
     }
 }

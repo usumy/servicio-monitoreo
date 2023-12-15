@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title', 'Registro de usuarios')
+
 @section('content')
 
 <div class="container">
@@ -27,16 +29,14 @@
                         </div>
                         <div class="form-group row">
                             <label for="departamento_id" class="col-md-4 col-form-label text-md-right">¿De qué departamento es?</label>
-                        
+                            
                             <div class="col-md-6">
                                 <select class="form-control @error('departamento_id') is-invalid @enderror" id="departamento_id" name="departamento_id" required>
-                                    <option value="1">Departamento de artes</option>
-                                    <option value="2">Departamento de informatica</option>
-                                    <option value="3">Departamento de contabilidad</option>
-                                    <option value="4">Departamento de finanzas</option>
-                                    <option value="5">Departamento de recursos humanos</option>
+                                    @foreach($departamentos as $departamento)
+                                        <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}</option>
+                                    @endforeach
                                 </select>
-                        
+                            
                                 @error('departamento_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,6 +44,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
                         
                       <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -95,3 +96,4 @@
     </div>
 </div>
 @endsection
+
